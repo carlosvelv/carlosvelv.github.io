@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tutorial de Script para Datos de COVID-19
-subtitle: Excerpt from Soulshaping by Jeff Brown
+subtitle: Script para descargar y agrupar datos de covid en México, utilizando Docker.
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
