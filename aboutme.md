@@ -1,16 +1,18 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Sobre mí
+subtitle: Carlos Velázquez
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+## Intereses
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+- Aplicación de algoritmos genéticos y metaheurísticas en la generación/detección de malware :cherries: :scissors:
+- Temas relacionados a la seguridad de la información. :floppy_disk:
+- Para contactarme este es mi [LinkedIn]( www.linkedin.com/in/carlos-velazquez-a38a7b1b9):herb:
 
-What else do you need?
+## Habilidades
 
-### My story
+- Python    
+- R
+- Bash
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
