@@ -1,17 +1,57 @@
 ---
 layout: post
-title: Flake it till you make it
+title: Tutorial de Script para Datos de COVID-19
 subtitle: Excerpt from Soulshaping by Jeff Brown
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
-tags: [books, test]
+tags: [COVID, bash, docker]
 ---
 
-Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment problem. But if I walk away from a seemingly secure route because my soul has other ideas, I am a flake?
+A continuación presento un tutorial para bajar la imagen de docker que contiene los scripts para descargar y agrupar datos de COVID en MX (confirmados, negativos, fallecidos) con el fin de analizar los factores de riesgo, además de filtrar por estado.
 
-The truth is that no one else can definitively know the path we are here to walk. It’s tempting to listen—many of us long for the omnipotent other—but unless they are genuine psychic intuitives, they can’t know. All others can know is their own truth, and if they’ve actually done the work to excavate it, they will have the good sense to know that they cannot genuinely know anyone else’s. Only soul knows the path it is here to walk. Since you are the only one living in your temple, only you can know its scriptures and interpretive structure.
+<!-- more -->
 
-At the heart of the struggle are two very different ideas of success—survival-driven and soul-driven. For survivalists, success is security, pragmatism, power over others. Success is the absence of material suffering, the nourishing of the soul be damned. It is an odd and ironic thing that most of the material power in our world often resides in the hands of younger souls. Still working in the egoic and material realms, they love the sensations of power and focus most of their energy on accumulation. Older souls tend not to be as materially driven. They have already played the worldly game in previous lives and they search for more subtle shades of meaning in this one—authentication rather than accumulation. They are often ignored by the culture at large, although they really are the truest warriors.
+Requisitos:
 
-A soulful notion of success rests on the actualization of our innate image. Success is simply the completion of a soul step, however unsightly it may be. We have finished what we started when the lesson is learned. What a fear-based culture calls a wonderful opportunity may be fruitless and misguided for the soul. Staying in a passionless relationship may satisfy our need for comfort, but it may stifle the soul. Becoming a famous lawyer is only worthwhile if the soul demands it. It is an essential failure if you are called to be a monastic this time around. If you need to explore and abandon ten careers in order to stretch your soul toward its innate image, then so be it. Flake it till you make it.
+-Docker
+
+Primero haremos un pull a la imagen siguiente:
+
+`$ docker pull carlosve97/script_covid_mx`
+
+Despues correremos la imagen que descargamos:\
+`$ docker run -it carlosve97/script_covid_mx:latest`
+
+Despues de que se corra aparecerá algo asi, indicando que lo hemos podido correr correctamente:\
+`root@<CARACTERES>:` 
+
+### script_salud.sh
+#### Script que descarga los datos y crea tres archivos csv a partir de los datos originales.
+
+Ahora accederemos al directorio scripts_covid y ejecutaremos el script 'script_salud.sh'\
+`$ bash scripts_covid/script_salud`
+
+Esto descargará los datos mas actuales de COVID en méxico y generará un directorio con tres archivos:
+
+* 'factores_de_riesgo.csv' -> archivo que contiene las columnas de edad,fecha,sexo,fecha de defuncion, factores de riesgo y resultado final
+* 'confirmados_factores_de_riesgo.csv' -> archivo que contiene las columnas de edad,fecha,sexo,fecha de defuncion, factores de riesgo para todos los casos confirmados en México
+* 'negativos_factores_de_riesgo.csv' -> archivo que contiene las columnas de edad,fecha,sexo,fecha de defuncion, factores de riesgo  para todos los casos negativos en México
+* 'fallecidos_factores_de_riesgo.csv' archivo que contiene las columnas de edad,fecha,sexo,fecha de defuncion, factores de riesgo  para todos los casos fallecidos en México 
+
+### filtro_por_estado.sh
+#### Script que filtra los datos por estado
+
+Posteriormente accederemos al directorio scripts_covid y ejecutaremos el script 'filtro_por_estado.sh'\
+`$ bash scripts_covid/filtro_por_estado.sh`
+
+Esto dará un menu de los estados disponibles para filtrar los datos y nosotros seleccionamos el estado de nuestra elección (en este caso es Sonora por lo que elegiremos el 26\
+`26`
+
+Se crearán dos archivos dentro del directorio 'carpeta_covid':\
+*NOTA: $NUM es el numero que elegimos*
+
+* 'casos_totales_estado_$NUM.csv' -> casos totales para el estado de nuestra elección
+* 'confirmados_estado_$NUM.csv' -> casos confirmados para el estado de nuestra elección
+
+Listo, ya tenemos todos los archivos para empezar a analizar los datos!
