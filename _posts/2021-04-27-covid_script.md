@@ -55,3 +55,8 @@ Se crearán dos archivos dentro del directorio 'carpeta_covid':\
 * 'confirmados_estado_$NUM.csv' -> casos confirmados para el estado de nuestra elección
 
 Listo, ya tenemos todos los archivos para empezar a analizar los datos!
+
+
+<sub> Las imagenes del articulo fueron obtenidas de:
+https://www.iproup.com/innovacion/2775-inteligencia-artificial-en-mexico-avances-retos-y-oportunidades
+https://logos-marcas.com/docker-logo/ </sub>
