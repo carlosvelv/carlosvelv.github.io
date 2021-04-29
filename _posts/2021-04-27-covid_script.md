@@ -3,7 +3,7 @@ layout: post
 title: Tutorial de Script para Datos de COVID-19
 subtitle: Script para descargar y agrupar datos de covid en México, utilizando Docker.
 cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
+thumbnail-img: /assets/img/docker_logo.jpg
 share-img: /assets/img/path.jpg
 tags: [COVID, bash, docker]
 ---
